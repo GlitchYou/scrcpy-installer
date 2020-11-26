@@ -5,7 +5,6 @@ from quick_tools.design import menu
 from quick_tools.utils import rsh, sh, cl, reg
 
 cl()
-
 print(f"\n{sb}{cb}Scrcpy:{nn}")
 
 choice = menu("Install", "Uninstall", mask=f"  {sb}{cg}{{i}}) {cb}{{p}}")
@@ -33,8 +32,8 @@ if choice == 1:
 		print(link)
 		sh(f"wget -q --show-progress {link}")
 
-	sh(f"unzip v{scrcpy[v]}.zip")
-	sh(f"mv scrcpy-server-v{scrcpy[v]} scrcpy-{scrcpy[v]}/scrcpy-server")
+	rsh(f"unzip v{scrcpy[v]}.zip")
+	rsh(f"mv scrcpy-server-v{scrcpy[v]} scrcpy-{scrcpy[v]}/scrcpy-server")
 
 	sh(
 	f"""
@@ -43,7 +42,6 @@ if choice == 1:
 	meson build --buildtype release --strip -Db_lto=true  -Dprebuilt_server=scrcpy-server
 	cd build
 
-	#sudo install scrcpy-server /usr/local/bin/scrcpy-server
 	ninja
 	sudo ninja install
 
