@@ -2,7 +2,7 @@
 Build Scrcpy Easily
 
 #### Install dependeces & run install_or_uninstall.py (Ubunto/Debian)
-   ./scrcpy-installer
+   bash scrcpy-installer
 
 #### Install or Uninstall
-   ./install_or_uninstall.py
+   python3 install_or_uninstall.py
