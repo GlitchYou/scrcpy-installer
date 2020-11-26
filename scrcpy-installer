@@ -1,0 +1,5 @@
+#!/bin/bash
+
+sudo apt install adb ffmpeg libsdl2-2.0-0 make gcc pkg-config meson ninja-build libavcodec-dev libavformat-dev libavutil-dev libsdl2-dev
+sudo ./install_or_uninstall.py
+
