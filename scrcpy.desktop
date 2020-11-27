@@ -1,0 +1,15 @@
+[Desktop Entry]
+Version=1.1
+Type=Application
+Name=Scrcpy
+Comment=Mirror android from adb
+Icon=/home/glitchyou/.local/share/icons/scrcpy-icon.png
+TryExec=bash -c "adb kill-server && scrcpy"
+Exec=scrcpy --prefer-text
+Actions=List;
+Categories=Utility;
+StartupNotify=true
+
+[Desktop Action List]
+Name=List Devices
+Exec=bash -c 'notify-send "$(adb devices)"'

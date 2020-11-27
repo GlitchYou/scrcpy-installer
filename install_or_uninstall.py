@@ -47,6 +47,11 @@ if choice == 1:
 
 	"""
 	)
+	
+	rsh("mkdir ~/.local/share/{icons,applications}/")
+	
+	sh("cp scrcpy-icon.png ~/.local/share/icons/")
+	sh("cp scrcpy.desktop ~/.local/share/applications/")
 
 	print(f"{sb}{cg}Scrcpy Installed{nn}")
 
