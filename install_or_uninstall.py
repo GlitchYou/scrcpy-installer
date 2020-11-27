@@ -15,13 +15,8 @@ if choice == 1:
 	scrcpy = rsh("curl https://github.com/Genymobile/scrcpy/releases/")
 	scrcpy = reg(scrcpy, "scrcpy v([.\d]+)</a>")
 
-
-	v = menu(*scrcpy,
-		prompt=f"\n{sb}{cb}Selecione a versão que deseja instalar: {nn}",
-		mask=f"  {sb}{cg}{{i}}) {cb}v{{p}}{nn}")
-		
+	v = menu(*scrcpy, mask=f"  {sb}{cg}{{i}}) {cb}v{{p}}{nn}")
 	v -= 1
-		
 		
 	scrcpy_link = f"https://github.com/Genymobile/scrcpy/archive/v{scrcpy[v]}.zip"
 	server_link = f"https://github.com/Genymobile/scrcpy/releases/download/v{scrcpy[v]}/scrcpy-server-v{scrcpy[v]}"
