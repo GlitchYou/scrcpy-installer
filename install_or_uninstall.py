@@ -58,5 +58,5 @@ if choice == 1:
 else:
 	sh(f"sudo rm -rf /usr/local/*/scrcpy*")
 	rsh("rm ~/.local/share/{icons,applications}/scrcpy*")
-	print(f"{sb}{cr}Scrcpy Unstalled{nn}")
+	print(f"{sb}{cr}Scrcpy Uninstalled{nn}")
 
