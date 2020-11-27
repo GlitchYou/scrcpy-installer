@@ -7,17 +7,16 @@ from quick_tools.utils import rsh, sh, cl, reg
 cl()
 print(f"\n{sb}{cb}Scrcpy:{nn}")
 
-choice = menu("Install", "Uninstall", mask=f"  {sb}{cg}{{i}}) {cb}{{p}}")
+choice = menu("Install", "Uninstall", mask=f"  {sb}{cg}{{i}}) {cb}{{p}}{nn}")
 
 if choice == 1:
 
-	print(f"{sb}{cg}\nCarregando Versões...\n{nn}")
+	print(f"{sb}{cg}\nLoading...\n{nn}")
 	scrcpy = rsh("curl https://github.com/Genymobile/scrcpy/releases/")
 	scrcpy = reg(scrcpy, "scrcpy v([.\d]+)</a>")
 
-	v = menu(*scrcpy, mask=f"  {sb}{cg}{{i}}) {cb}v{{p}}{nn}")
-	v -= 1
-		
+	v = menu(*scrcpy, mask=f"  {sb}{cg}{{i}}) {cb}v{{p}}{nn}") - 1
+
 	scrcpy_link = f"https://github.com/Genymobile/scrcpy/archive/v{scrcpy[v]}.zip"
 	server_link = f"https://github.com/Genymobile/scrcpy/releases/download/v{scrcpy[v]}/scrcpy-server-v{scrcpy[v]}"
 	rsh(f"rm -rf *{scrcpy[v]}*")
@@ -42,9 +41,10 @@ if choice == 1:
 
 	"""
 	)
-	
-	rsh("mkdir ~/.local/share/{icons,applications}/")
-	
+
+	rsh("mkdir ~/.local/share/icons")
+	rsh("mkdir ~/.local/share/applications")
+
 	sh("cp scrcpy-icon.png ~/.local/share/icons/")
 	sh("cp scrcpy.desktop ~/.local/share/applications/")
 
@@ -52,6 +52,7 @@ if choice == 1:
 
 else:
 	sh(f"sudo rm -rf /usr/local/*/scrcpy*")
-	rsh("rm ~/.local/share/{icons,applications}/scrcpy*")
+	sh("rm ~/.local/share/icons/scrcpy-icon.png")
+	sh("rm ~/.local/share/applications/scrcpy.desktop")
 	print(f"{sb}{cr}Scrcpy Uninstalled{nn}")
 
