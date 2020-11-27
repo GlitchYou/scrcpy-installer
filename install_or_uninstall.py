@@ -45,8 +45,8 @@ if choice == 1:
 	rsh("mkdir ~/.local/share/icons")
 	rsh("mkdir ~/.local/share/applications")
 
-	sh("cp scrcpy-icon.png ~/.local/share/icons/")
-	sh("cp scrcpy.desktop ~/.local/share/applications/")
+	sh("cp scrcpy-icon.png ~/.local/share/icons")
+	sh("cp scrcpy.desktop ~/.local/share/applications")
 
 	print(f"{sb}{cg}Scrcpy Installed{nn}")
 
@@ -54,5 +54,6 @@ else:
 	sh(f"sudo rm -rf /usr/local/*/scrcpy*")
 	sh("rm ~/.local/share/icons/scrcpy-icon.png")
 	sh("rm ~/.local/share/applications/scrcpy.desktop")
+	
 	print(f"{sb}{cr}Scrcpy Uninstalled{nn}")
 
